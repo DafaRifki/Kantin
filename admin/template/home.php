@@ -1,12 +1,29 @@
 <h3>Dashboard</h3>
 <br/>
-<!-- coding implementasi php -->
+<?php
+    $sql = "SELECT * FROM barang WHERE stok <= 3";
+    $row = $conn->prepare($sql);
+    $row->execute();
+    $r = $row->rowCount();
+    if ($r > 0) {
+        echo "<div class='alert alert-warning'>
+            <span class='glyphicon glyphicon-info-sign'>Ada</span>
+            <span style='color: red'>$r</span> barang yang Stok tersisa kurang dari 3 items. silahkan pesan lagi!!!
+            <span class='pull-right'><a href='index.php?page=barang&stok=yes'>Tabel Barang <i class='fa fa-angle-double-right'></i></a></span>
+        </div>";
+    }
+
+    $hasil_barang = $lihat->barang_row();
+    $hasil_kategori = $lihat->kategori_row();
+    $stok = $lihat->barang_stok_row();
+    $jual = $lihat->jual_row();
+?>
 <div class="row">
     <!--STATUS cardS -->
     <div class="col-md-3 mb-3">
         <div class="card">
-            <div class="card-header bg-primary text-white">
-                <h6 class="pt-2"><i class="fas fa-cubes"></i> Nama Barang</h6>
+            <div class="card-header text-white" style="background-color: #510BC4;">
+                <h6 class="pt-2"><i class="fas fa-cubes"></i> List Barang</h6>
             </div>
             <div class="card-body">
                 <center>
@@ -23,7 +40,7 @@
     <!-- STATUS cardS -->
     <div class="col-md-3 mb-3">
         <div class="card">
-            <div class="card-header bg-primary text-white">
+            <div class="card-header text-white" style="background-color: #510BC4;">
                 <h6 class="pt-2"><i class="fas fa-chart-bar"></i> Stok Barang</h6>
             </div>
             <div class="card-body">
@@ -41,7 +58,7 @@
     <!-- STATUS cardS -->
     <div class="col-md-3 mb-3">
         <div class="card">
-            <div class="card-header bg-primary text-white">
+            <div class="card-header text-white" style="background-color: #510BC4;">
                 <h6 class="pt-2"><i class="fas fa-upload"></i> Telah Terjual</h6>
             </div>
             <div class="card-body">
@@ -58,7 +75,7 @@
     </div><!-- /col-md-3-->
     <div class="col-md-3 mb-3">
         <div class="card">
-            <div class="card-header bg-primary text-white">
+            <div class="card-header text-white" style="background-color: #510BC4;">
                 <h6 class="pt-2"><i class="fa fa-bookmark"></i> Kategori Barang</h6>
             </div>
             <div class="card-body">
