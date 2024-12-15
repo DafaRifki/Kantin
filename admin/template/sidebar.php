@@ -1,12 +1,15 @@
-<!-- Sidebar start -->
-<!-- implementasi session php -->
+<!--sidebar start-->
+<?php 
+    $id = $_SESSION['admin']['id_member'];
+    $hasil_profil = $lihat -> member_edit($id);
+?>
 <!-- Sidebar -->
-<ul style="background-color: #6610f2;" class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav sidebar sidebar-dark accordion" style="background-color: #6610f2;" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
         <div class="sidebar-brand-icon">
-            <i class="fas fa-solid fa-store"></i>
+            <i class="fas fa-store"></i>
         </div>
         <div class="sidebar-brand-text mx-3">POS Kantin<sup></sup></div>
     </a>
@@ -87,7 +90,7 @@
             <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                 <i class="fa fa-bars"></i>
             </button>
-            <!-- <h5 class="d-lg-block d-none mt-2"><b><?php echo $toko['nama_toko'];?>, <?php echo $toko['alamat_toko'];?></b></h5> -->
+            <h5 class="d-lg-block d-none mt-2"><b><?php echo $toko['nama_toko'];?>, <?php echo $toko['alamat_toko'];?></b></h5>
             <!-- Topbar Navbar -->
             <ul class="navbar-nav ml-auto">
                 <!-- <div class="topbar-divider d-none d-sm-block"></div> -->
@@ -96,11 +99,11 @@
                 <li class="nav-item dropdown no-arrow">
                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
-                        <!-- <img class="img-profile rounded-circle"
+                        <img class="img-profile rounded-circle"
                             src="assets/img/user/<?php echo $hasil_profil['gambar'];?>">
                         <span
                             class="mr-2 d-none d-lg-inline text-gray-600 small ml-2"><?php echo $hasil_profil['nm_member'];?></span>
-                        <i class="fas fa-angle-down"></i> -->
+                        <i class="fas fa-angle-down"></i>
                     </a>
                     <!-- Dropdown - User Information -->
                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
