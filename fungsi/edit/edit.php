@@ -15,7 +15,7 @@ if (!empty($_SESSION['admin'])) {
         $data[] = $pemilik;
         $data[] = $id;
         $sql = 'UPDATE toko SET nama_toko=?, alamat_toko=?, tlp=?, nama_pemilik=? WHERE id_toko = ?';
-        $row = $config -> prepare($sql);
+        $row = $conn -> prepare($sql);
         $row -> execute($data);
         echo '<script>window.location="../../index.php?page=pengaturan&success=edit-data"</script>';
     }
@@ -26,7 +26,7 @@ if (!empty($_SESSION['admin'])) {
         $data[] = $nama;
         $data[] = $id;
         $sql = 'UPDATE kategori SET  nama_kategori=? WHERE id_kategori=?';
-        $row = $config -> prepare($sql);
+        $row = $conn -> prepare($sql);
         $row -> execute($data);
         echo '<script>window.location="../../index.php?page=kategori&uid='.$id.'&success-edit=edit-data"</script>';
     }
@@ -36,7 +36,7 @@ if (!empty($_SESSION['admin'])) {
         $id = htmlentities($_POST['id']);
         $dataS[] = $id;
         $sqlS = 'select*from barang WHERE id_barang=?';
-        $rowS = $config -> prepare($sqlS);
+        $rowS = $conn -> prepare($sqlS);
         $rowS -> execute($dataS);
         $hasil = $rowS -> fetch();
 
@@ -45,7 +45,7 @@ if (!empty($_SESSION['admin'])) {
         $data[] = $stok;
         $data[] = $id;
         $sql = 'UPDATE barang SET stok=? WHERE id_barang=?';
-        $row = $config -> prepare($sql);
+        $row = $conn -> prepare($sql);
         $row -> execute($data);
         echo '<script>window.location="../../index.php?page=barang&success-stok=stok-data"</script>';
     }
@@ -72,7 +72,7 @@ if (!empty($_SESSION['admin'])) {
         $data[] = $id;
         $sql = 'UPDATE barang SET id_kategori=?, nama_barang=?, merk=?, 
 				harga_beli=?, harga_jual=?, satuan_barang=?, stok=?, tgl_update=?  WHERE id_barang=?';
-        $row = $config -> prepare($sql);
+        $row = $conn -> prepare($sql);
         $row -> execute($data);
         echo '<script>window.location="../../index.php?page=barang/edit&barang='.$id.'&success=edit-data"</script>';
     }
@@ -124,7 +124,7 @@ if (!empty($_SESSION['admin'])) {
                 $data[] = $name;
                 $data[] = $id;
                 $sql = 'UPDATE member SET gambar=?  WHERE member.id_member=?';
-                $row = $config -> prepare($sql);
+                $row = $conn -> prepare($sql);
                 $row -> execute($data);
                 echo '<script>window.location="../../index.php?page=user&success=edit-data"</script>';
             } else {
@@ -149,7 +149,7 @@ if (!empty($_SESSION['admin'])) {
         $data[] = $nik;
         $data[] = $id;
         $sql = 'UPDATE member SET nm_member=?,alamat_member=?,telepon=?,email=?,NIK=? WHERE id_member=?';
-        $row = $config -> prepare($sql);
+        $row = $conn -> prepare($sql);
         $row -> execute($data);
         echo '<script>window.location="../../index.php?page=user&success=edit-data"</script>';
     }
@@ -163,7 +163,7 @@ if (!empty($_SESSION['admin'])) {
         $data[] = $pass;
         $data[] = $id;
         $sql = 'UPDATE login SET user=?,pass=md5(?) WHERE id_member=?';
-        $row = $config -> prepare($sql);
+        $row = $conn -> prepare($sql);
         $row -> execute($data);
         echo '<script>window.location="../../index.php?page=user&success=edit-data"</script>';
     }
@@ -174,7 +174,7 @@ if (!empty($_SESSION['admin'])) {
         $jumlah = htmlentities($_POST['jumlah']);
 
         $sql_tampil = "select *from barang where barang.id_barang=?";
-        $row_tampil = $config -> prepare($sql_tampil);
+        $row_tampil = $conn -> prepare($sql_tampil);
         $row_tampil -> execute(array($id_barang));
         $hasil = $row_tampil -> fetch();
 
@@ -185,7 +185,7 @@ if (!empty($_SESSION['admin'])) {
             $data1[] = $total;
             $data1[] = $id;
             $sql1 = 'UPDATE penjualan SET jumlah=?,total=? WHERE id_penjualan=?';
-            $row1 = $config -> prepare($sql1);
+            $row1 = $conn -> prepare($sql1);
             $row1 -> execute($data1);
             echo '<script>window.location="../../index.php?page=jual#keranjang"</script>';
         } else {
@@ -201,7 +201,7 @@ if (!empty($_SESSION['admin'])) {
             $sql = "select barang.*, kategori.id_kategori, kategori.nama_kategori
 					from barang inner join kategori on barang.id_kategori = kategori.id_kategori
 					where barang.id_barang like '%$cari%' or barang.nama_barang like '%$cari%' or barang.merk like '%$cari%'";
-            $row = $config -> prepare($sql);
+            $row = $conn -> prepare($sql);
             $row -> execute();
             $hasil1= $row -> fetchAll();
             ?>

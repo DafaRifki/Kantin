@@ -36,7 +36,7 @@
                 <img src="assets/img/user/<?php echo $hasil['gambar'];?>" alt="#" class="img-fluid w-100" />
             </div>
             <div class="card-footer">
-                <form action="#" method="post" enctype="multipart/form-data">
+                <form action="fungsi/edit/edit.php?gambar=user" method="post" enctype="multipart/form-data">
                     <input type="file" name="foto" accept="image/*">
                     <input type="hidden" name="foto2" value="<?php echo $hasil['gambar']; ?>">
                     <input type="hidden" name="id" value="<?php echo $hasil['id_member']; ?>">
@@ -55,7 +55,7 @@
             </div>
             <div class="card-body">
                 <div class="box-content">
-                    <form action="#" method="post" class="form-horizontal" enctype="multipart/form-data">
+                    <form action="fungsi/edit/edit.php?profile=edit" method="post" class="form-horizontal" enctype="multipart/form-data">
                         <fieldset>
                             <div class="control-group mb-3">
                                 <label for="typeahead" class="control-label">Nama</label>
@@ -104,7 +104,7 @@
             </div>
             <div class="card-body">
                 <div class="box-content">
-                    <form action="#" method="post" class="form-horizontal">
+                    <form action="fungsi/edit/edit.php?pass=ganti-pas" method="post" class="form-horizontal">
                         <fieldset>
                             <div class="control-group mb-3">
                                 <label for="typeahead" class="control-label">Username</label>
