@@ -1,3 +1,13 @@
+<style>
+    .btn-blue-costum{
+        background-color: #2C80FD;
+        color: white;
+    }
+    .btn:hover{
+        background-color: #0263F4;
+        color: white;
+    }
+</style>
 <!-- sidebar end -->
 <!-- main content -->
 <?php 
@@ -31,7 +41,7 @@
                     <input type="hidden" name="foto2" value="<?php echo $hasil['gambar']; ?>">
                     <input type="hidden" name="id" value="<?php echo $hasil['id_member']; ?>">
                     <br><br>
-                    <button type="submit" class="btn btn-primary btn-md" value="Tambah">
+                    <button type="submit" class="btn btn-blue-costum btn-md" value="Tambah">
                         <i class="fas fa-edit mr-1"></i> Ganti Foto
                     </button>
                 </form>
@@ -78,7 +88,7 @@
                                 </div>
                             </div>
                             <input type="hidden" name="id" value="<?= $hasil['id_member']; ?>">
-                            <button class="btn btn-primary" name="btn" value="Tambah">
+                            <button class="btn btn-blue-costum" name="btn" value="Tambah">
                                 <i class="fas fa-edit"></i> Ubah Profile
                             </button>
                         </fieldset>
@@ -109,7 +119,7 @@
                                 </div>
                             </div>
                             <input type="hidden" name="id" class="form-control" style="border-radius: 0px;" value="<?= $hasil['id_member']; ?>" required>
-                            <button type="submit" class="btn btn-primary" value="Tambah" name="proses"><i class="fas fa-edit"></i> Ubah Password</button>
+                            <button type="submit" class="btn btn-blue-costum" value="Tambah" name="proses"><i class="fas fa-edit"></i> Ubah Password</button>
                         </fieldset>
                     </form>
                 </div>
