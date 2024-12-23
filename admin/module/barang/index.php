@@ -1,30 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h4>Data Barang</h4>
-    <br />
-    <?php if(isset($_GET['success-stok'])){?>
+        <h4>Data Barang</h4>
+        <br />
+        <?php if(isset($_GET['success-stok'])){?>
         <div class="alert alert-success">
             <p>Tambah Stok Berhasil !</p>
         </div>
-    <?php }?>
-    <?php if(isset($_GET['success'])){?>
+        <?php }?>
+        <?php if(isset($_GET['success'])){?>
         <div class="alert alert-success">
             <p>Tambah Data Berhasil !</p>
         </div>
-    <?php }?>
-    <?php if(isset($_GET['remove'])){?>
+        <?php }?>
+        <?php if(isset($_GET['remove'])){?>
         <div class="alert alert-danger">
             <p>Hapus Data Berhasil !</p>
         </div>
-    <?php }?>
+        <?php }?>
 
-    <?php 
+        <?php 
 			$sql=" select * from barang where stok <= 3";
 			$row = $conn -> prepare($sql);
 			$row -> execute();
@@ -36,10 +28,10 @@
 					<span class='pull-right'><a href='index.php?page=barang&stok=yes'>Cek Barang <i class='fa fa-angle-double-right'></i></a></span>
 				</div>
 				";	
-		    }
+			}
 		?>
-    <!-- Trigger the modal with a button -->
-    <button type="button" class="btn btn-primary btn-md mr-2" data-toggle="modal" data-target="#myModal">
+        <!-- Trigger the modal with a button -->
+        <button type="button" class="btn btn-primary btn-md mr-2" data-toggle="modal" data-target="#myModal">
             <i class="fa fa-plus"></i> Insert Data</button>
         <a href="index.php?page=barang&stok=yes" class="btn btn-warning btn-md mr-2">
             <i class="fa fa-list"></i> Sortir Stok Kurang</a>
@@ -47,8 +39,8 @@
             <i class="fa fa-refresh"></i> Refresh Data</a>
         <div class="clearfix"></div>
         <br />
-     <!-- view barang -->
-     <div class="card card-body">
+        <!-- view barang -->
+        <div class="card card-body">
             <div class="table-responsive">
                 <table class="table table-bordered table-striped table-sm" id="example1">
                     <thead>
@@ -66,11 +58,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <?php 
+                        <?php 
 						$totalBeli = 0;
 						$totalJual = 0;
 						$totalStok = 0;
-						if($_GET['stok'] == 'yes')
+						if(isset($_GET['stok'])== 'yes')
 						{
 							$hasil = $lihat -> barang_stok();
 
@@ -78,9 +70,9 @@
 							$hasil = $lihat -> barang();
 						}
 						$no=1;
-                    foreach($hasil as $isi) {
+						foreach($hasil as $isi) {
 					?>
-                     <tr>
+                        <tr>
                             <td><?php echo $no;?></td>
                             <td><?php echo $isi['id_barang'];?></td>
                             <td><?php echo $isi['nama_kategori'];?></td>
@@ -96,8 +88,8 @@
                             <td>Rp.<?php echo number_format($isi['harga_beli']);?>,-</td>
                             <td>Rp.<?php echo number_format($isi['harga_jual']);?>,-</td>
                             <td> <?php echo $isi['satuan_barang'];?></td>
-                            <td></td>
-                            <?php if($isi['stok'] <=  '3'){?>
+                            <td>
+                                <?php if($isi['stok'] <=  '3'){?>
                                 <form method="POST" action="fungsi/edit/edit.php?stok=edit">
                                     <input type="text" name="restok" class="form-control">
                                     <input type="hidden" name="id" value="<?php echo $isi['id_barang'];?>"
@@ -140,7 +132,7 @@
                 </table>
             </div>
         </div>
-     <!-- end view barang -->
+        <!-- end view barang -->
         <!-- tambah barang MODALS-->
         <!-- Modal -->
 
@@ -155,7 +147,7 @@
                     <form action="fungsi/tambah/tambah.php?barang=tambah" method="POST">
                         <div class="modal-body">
                             <table class="table table-striped bordered">
-                            <?php
+                                <?php
 									$format = $lihat -> barang_id();
 								?>
                                 <tr>
@@ -226,5 +218,3 @@
             </div>
 
         </div>
-</body>
-</html>
