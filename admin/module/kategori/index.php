@@ -18,7 +18,7 @@
 <?php 
 	if(!empty($_GET['uid'])){
 	$sql = "SELECT * FROM kategori WHERE id_kategori = ?";
-	$row = $config->prepare($sql);
+	$row = $conn->prepare($sql);
 	$row->execute(array($_GET['uid']));
 	$edit = $row->fetch();
 ?>
