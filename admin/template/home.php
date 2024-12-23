@@ -22,7 +22,7 @@
     <!--STATUS cardS -->
     <div class="col-md-3 mb-3">
         <div class="card">
-            <div class="card-header text-white" style="background-color: #510BC4;">
+            <div class="card-header text-white" style="background-color: #8445D9;">
                 <h6 class="pt-2"><i class="fas fa-cubes"></i> List Barang</h6>
             </div>
             <div class="card-body">
@@ -40,7 +40,7 @@
     <!-- STATUS cardS -->
     <div class="col-md-3 mb-3">
         <div class="card">
-            <div class="card-header text-white" style="background-color: #510BC4;">
+            <div class="card-header text-white" style="background-color: #8445D9;">
                 <h6 class="pt-2"><i class="fas fa-chart-bar"></i> Stok Barang</h6>
             </div>
             <div class="card-body">
@@ -58,7 +58,7 @@
     <!-- STATUS cardS -->
     <div class="col-md-3 mb-3">
         <div class="card">
-            <div class="card-header text-white" style="background-color: #510BC4;">
+            <div class="card-header text-white" style="background-color: #8445D9;">
                 <h6 class="pt-2"><i class="fas fa-upload"></i> Telah Terjual</h6>
             </div>
             <div class="card-body">
@@ -75,7 +75,7 @@
     </div><!-- /col-md-3-->
     <div class="col-md-3 mb-3">
         <div class="card">
-            <div class="card-header text-white" style="background-color: #510BC4;">
+            <div class="card-header text-white" style="background-color: #8445D9;">
                 <h6 class="pt-2"><i class="fa fa-bookmark"></i> Kategori Barang</h6>
             </div>
             <div class="card-body">
