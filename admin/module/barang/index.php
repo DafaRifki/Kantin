@@ -1,4 +1,4 @@
-        <h4>Data Barang</h4>
+<h4>Data Barang</h4>
         <br />
         <?php if(isset($_GET['success-stok'])){?>
         <div class="alert alert-success">
@@ -58,20 +58,18 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php 
-						$totalBeli = 0;
-						$totalJual = 0;
-						$totalStok = 0;
-						if(isset($_GET['stok'])== 'yes')
-						{
-							$hasil = $lihat -> barang_stok();
-
-						}else{
-							$hasil = $lihat -> barang();
-						}
-						$no=1;
-						foreach($hasil as $isi) {
-					?>
+                        <?php
+                            $totalBeli = 0;
+                            $totalJual = 0;
+                            $totalStok = 0;
+                            if(isset($_GET['stok']) == 'yes'){
+                                $hasil = $lihat -> barang_stok();
+                            }else{
+                                $hasil = $lihat -> barang();
+                            }
+                            $no=1;
+                            foreach($hasil as $isi) {
+                        ?> 
                         <tr>
                             <td><?php echo $no;?></td>
                             <td><?php echo $isi['id_barang'];?></td>

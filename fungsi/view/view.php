@@ -62,7 +62,7 @@ class view
 
     public function barang_stok()
     {
-        $sql = "SELECT barang.*, kategori.id_kategori, kategori.nama_kategori
+        $sql = "select barang.*, kategori.id_kategori, kategori.nama_kategori
                 from barang inner join kategori on barang.id_kategori = kategori.id_kategori 
                 where stok <= 3 
                 ORDER BY id DESC";
